@@ -5,7 +5,11 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "generate": "npx react-native generate-bootsplash ./assets/images/logo.png --background-color=4a6362   --logo-width=100 --assets-path=./src/assets --flavor=main",
+    "clean": "cd android && gradlew clean && cd ..",
     "start": "react-native start",
+    "generate-prod-apk": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/build/intermediates/res/merged/release/ && rm -rf android/app/src/main/res/drawable-* && rm -rf android/app/src/main/res/raw/* && cd android && ./gradlew assembleRelease && cd ..",
+    "generate-prod-aab": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/build/intermediates/res/merged/release/ && rm -rf android/app/src/main/res/drawable-* && rm -rf android/app/src/main/res/raw/* && cd android && ./gradlew bundleRelease && cd ..",
     "test": "jest",
     "lint": "eslint ."
   },
@@ -13,15 +17,24 @@
     "@emotion/react": "^11.7.0",
     "@emotion/styled": "^11.6.0",
     "@mui/material": "^5.2.2",
+    "@react-navigation/material-bottom-tabs": "^6.0.9",
     "@react-navigation/native": "^6.0.6",
-    "@react-navigation/native-stack": "^6.2.5",
+    "@react-navigation/stack": "^6.0.11",
     "react": "17.0.2",
     "react-native": "0.66.3",
+    "react-native-bootsplash": "^4.0.2",
+    "react-native-gesture-handler": "^2.0.0",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.10.0",
     "react-native-vector-icons": "^9.0.0",
     "react-redux": "^7.2.6",
-    "redux": "^4.1.2"
+    "redux": "^4.1.2",
+    "redux-thunk": "^2.4.1"
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
   },
   "devDependencies": {
     "@babel/core": "7.16.0",

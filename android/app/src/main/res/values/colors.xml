@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4a6362</color>
+    <color name="colorPrimaryDark">#4a6362</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <!--    news image background colors -->
+    <color name="purple">#905EE8</color>
+    <color name="red">#F96335</color>
+    <color name="black">#141414</color>
+    <color name="blue">#008DFC</color>
+    <color name="yellow">#FED149</color>
+
+    <color name="light_text_color" > #363636</color>
+    <color name="light_bg_color" > #ffffff</color>
+
+    <color name="bootsplash_background">#4A6362</color>
+</resources>

@@ -8,9 +8,9 @@ function Home({navigation}) {
         onPress={() => {
           navigation.navigate('Second');
         }}>
-        <Text>Second</Text>
+        <Text style={{fontFamily:'Rubik-Bold'}}>Second</Text>
       </TouchableOpacity>
-      <Text>Home Screen</Text>
+      <Text style={{fontFamily:'Rubik-Light'}}>Home Screen</Text>
     </View>
   );
 }
@@ -22,9 +22,9 @@ function Second({navigation}) {
         onPress={() => {
           navigation.navigate('Home');
         }}>
-        <Text>Home</Text>
+        <Text style={{fontFamily:'Rubik-Bold'}}>Home</Text>
       </TouchableOpacity>
-      <Text>Second Screen</Text>
+      <Text style={{fontFamily:'Rubik-Light'}}>Second Screen</Text>
     </View>
   );
 }
