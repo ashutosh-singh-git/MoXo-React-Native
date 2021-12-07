@@ -19,7 +19,7 @@ export default function Tabs() {
         >
             <Tab.Screen
                 name="Home"
-                component={HomeStack}
+                component={Home}
                 options={{
                     tabBarLabel: 'Home',
                     tabBarIcon: ({ color }) => (
@@ -29,7 +29,7 @@ export default function Tabs() {
             />
             <Tab.Screen
                 name="Activity"
-                component={HomeStack}
+                component={Second}
                 options={{
                     tabBarLabel: 'Activity',
                     tabBarIcon: ({ color }) => (
@@ -39,7 +39,7 @@ export default function Tabs() {
             />
             <Tab.Screen
                 name="Journey"
-                component={HomeStack}
+                component={Home}
                 options={{
                     tabBarLabel: 'Journey',
                     tabBarIcon: ({ color }) => (
@@ -49,7 +49,7 @@ export default function Tabs() {
             />
             <Tab.Screen
                 name="Profile"
-                component={HomeStack}
+                component={Second}
                 options={{
                     tabBarLabel: 'Profile',
                     tabBarIcon: ({ color }) => (
