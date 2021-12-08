@@ -1,19 +1,15 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {
-    NavigationContainer,
-    StackActions,
-    DefaultTheme,
-    DarkTheme,
-} from '@react-navigation/native';
-import {createStackNavigator, CardStyleInterpolators} from '@react-navigation/stack';
+import {DarkTheme, DefaultTheme, NavigationContainer, StackActions} from '@react-navigation/native';
 import {Home, Second} from '../screens/home';
 import {StatusBar, Text, useColorScheme} from 'react-native';
-import Colors from 'react-native/Libraries/NewAppScreen/components/Colors';
+import {Colors} from '../utils';
 import RNBootSplash from 'react-native-bootsplash';
-import Tabs from './components/Tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import {Blog} from '../screens';
 
-const Stack = createStackNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 export const navigationRef = React.createRef();
 
@@ -42,40 +38,44 @@ function RootNavigation() {
             fallback={<Text>Loading...</Text>}
             theme={scheme === 'dark' ? DarkTheme : DefaultTheme}
         >
-            <StatusBar backgroundColor={scheme === 'dark' ? Colors.black : Colors.bg} barStyle={'light-content'}/>
-            <Stack.Navigator initialRouteName={'Home'}>
-                <Stack.Screen
-                    name={'Home'}
-                    component={Home}
+            <StatusBar backgroundColor={Colors().bg} barStyle={'light-content'}/>
+            <Tab.Navigator
+                initialRouteName="Home"
+                activeColor="#dddec3"
+                inactiveColor="#fff"
+                barStyle={{backgroundColor: Colors().bg}}
+            >
+                <Tab.Screen
+                    name="Blog"
+                    component={Blog}
                     options={{
-                        title: 'Moxo',
-                        headerStyle: {
-                            backgroundColor: scheme === 'dark' ? Colors.black : Colors.bg,
-                        },
-                        headerTintColor: Colors.white,
-                        headerTitleStyle: {
-                            fontWeight: 'bold',
-                        },
-                        cardStyleInterpolator: CardStyleInterpolators.forNoAnimation,
+                        tabBarLabel: 'Blog',
+                        tabBarIcon: ({color}) => (
+                            <MaterialCommunityIcons name="blogger" color={color} size={27}/>
+                        ),
                     }}
                 />
-                <Stack.Screen
-                    name={'Second'}
+                <Tab.Screen
+                    name="Activity"
                     component={Second}
                     options={{
-                        title: 'Second',
-                        headerStyle: {
-                            backgroundColor: scheme === 'dark' ? Colors.black : Colors.bg,
-                        },
-                        headerTintColor: Colors.white,
-                        headerTitleStyle: {
-                            fontWeight: 'bold',
-                        },
-                        headerLeft:false,
-                        cardStyleInterpolator: CardStyleInterpolators.forNoAnimation,
+                        tabBarLabel: 'Activity',
+                        tabBarIcon: ({color}) => (
+                            <MaterialCommunityIcons name="contacts-outline" color={color} size={27}/>
+                        ),
                     }}
                 />
-            </Stack.Navigator>
+                <Tab.Screen
+                    name="Journey"
+                    component={Home}
+                    options={{
+                        tabBarLabel: 'Journey',
+                        tabBarIcon: ({color}) => (
+                            <MaterialCommunityIcons name="motorbike" color={color} size={27}/>
+                        ),
+                    }}
+                />
+            </Tab.Navigator>
         </NavigationContainer>
     );
 }
