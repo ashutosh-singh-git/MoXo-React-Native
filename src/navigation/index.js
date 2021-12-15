@@ -6,10 +6,11 @@ import {StatusBar, Text, useColorScheme} from 'react-native';
 import {Colors} from '../utils';
 import RNBootSplash from 'react-native-bootsplash';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {Blog} from '../screens';
+import BottomNavigation from './components/bottomNavigation';
 
-const Tab = createMaterialBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 export const navigationRef = React.createRef();
 
@@ -39,43 +40,8 @@ function RootNavigation() {
             theme={scheme === 'dark' ? DarkTheme : DefaultTheme}
         >
             <StatusBar backgroundColor={Colors().bg} barStyle={'light-content'}/>
-            <Tab.Navigator
-                initialRouteName="Home"
-                activeColor="#dddec3"
-                inactiveColor="#fff"
-                barStyle={{backgroundColor: Colors().bg}}
-            >
-                <Tab.Screen
-                    name="Blog"
-                    component={Blog}
-                    options={{
-                        tabBarLabel: 'Blog',
-                        tabBarIcon: ({color}) => (
-                            <MaterialCommunityIcons name="blogger" color={color} size={27}/>
-                        ),
-                    }}
-                />
-                <Tab.Screen
-                    name="Activity"
-                    component={Second}
-                    options={{
-                        tabBarLabel: 'Activity',
-                        tabBarIcon: ({color}) => (
-                            <MaterialCommunityIcons name="contacts-outline" color={color} size={27}/>
-                        ),
-                    }}
-                />
-                <Tab.Screen
-                    name="Journey"
-                    component={Home}
-                    options={{
-                        tabBarLabel: 'Journey',
-                        tabBarIcon: ({color}) => (
-                            <MaterialCommunityIcons name="motorbike" color={color} size={27}/>
-                        ),
-                    }}
-                />
-            </Tab.Navigator>
+            <BottomNavigation/>
+            {/*<BlogStackNavigator/>*/}
         </NavigationContainer>
     );
 }
