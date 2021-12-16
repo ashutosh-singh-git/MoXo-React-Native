@@ -11,8 +11,8 @@
     <color name="blue">#008DFC</color>
     <color name="yellow">#FED149</color>
 
-    <color name="light_text_color" > #363636</color>
-    <color name="light_bg_color" > #ffffff</color>
+    <color name="light_text_color">#363636</color>
+    <color name="light_bg_color">#ffffff</color>
 
     <color name="bootsplash_background">#4A6362</color>
 </resources>

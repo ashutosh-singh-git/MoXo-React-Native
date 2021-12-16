@@ -15,10 +15,10 @@ class Blog extends Component {
 
     componentDidMount() {
         Apis
-            .getFeed("india", 2)
+            .getFeed('india', 2)
             .then(res => {
-                console.log(res["hits"])
-                this.setState({data: res["hits"]});
+                // console.log(res['hits']);
+                this.setState({data: res['hits']});
             });
     }
 

@@ -2,7 +2,7 @@ import {combineReducers} from 'redux';
 import {Utils} from './utils';
 
 const Reducers = combineReducers({
-    Utils
+    Utils,
 });
 
 export default Reducers;

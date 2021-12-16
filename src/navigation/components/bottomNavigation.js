@@ -2,72 +2,68 @@ import React from 'react';
 import {Text} from 'react-native';
 import {Dimensions} from '../../utils';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {Blog} from '../../screens';
-import {Home, Second} from '../../screens/home';
+import {Activity, Blog, Journey} from '../../screens';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {useSelector} from 'react-redux';
+import {useTheme} from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
 
 function BottomNavigation() {
-    const {COLORS} = useSelector((state) => state)['Utils'];
+    const {colors} = useTheme();
     return (
         <Tab.Navigator
             initialRouteName="Home"
-            style={{
-                backgroundColor: COLORS.bg,
-            }}
             screenOptions={{
-                tabBarActiveTintColor: COLORS.bg,
-                tabBarInactiveTintColor: "#fff",
-                tabBarActiveBackgroundColor: "#fff",
-                tabBarInactiveBackgroundColor: COLORS.bg,
+                tabBarActiveTintColor: colors.primary,
+                tabBarInactiveTintColor: '#fff',
+                tabBarActiveBackgroundColor: '#fff',
+                tabBarInactiveBackgroundColor: colors.primary,
                 tabBarItemStyle: {
                     paddingLeft: 10,
                     margin: 6,
                     borderRadius: 5,
                 },
                 tabBarStyle: {
-                    position: "absolute",
-                    width: Dimensions.windowWidth-30,
+                    position: 'absolute',
+                    width: Dimensions.windowWidth - 30,
                     bottom: 5,
                     right: 15,
                     left: 15,
-                    backgroundColor: COLORS.bg,
+                    backgroundColor: colors.primary,
                     borderRadius: 10,
-                    elevation: 5
+                    elevation: 5,
                 },
-                tabBarLabelPosition: "beside-icon",
+                tabBarLabelPosition: 'beside-icon',
                 headerStyle: {
-                    backgroundColor: COLORS.bg
+                    backgroundColor: colors.primary,
                 },
                 headerTitleStyle: {
                     color: '#fff',
                     fontFamily: 'Rubik-Medium',
                     fontSize: 25,
-                }
+                },
             }}
         >
             <Tab.Screen
                 name="Blog"
                 component={Blog}
                 options={{
-                    tabBarLabel: ({ focused, color }) => {
+                    tabBarLabel: ({focused, color}) => {
                         return focused ? <Text style={{
                             paddingLeft: 20,
                             color: color,
-                            fontFamily: "Rubik-Medium",
+                            fontFamily: 'Rubik-Medium',
                             fontSize: 14,
-                            textTransform: "uppercase"
+                            textTransform: 'uppercase',
                         }}>
                             Blog
-                        </Text> : null
+                        </Text> : null;
                     },
                     tabBarIcon: ({focused, color}) => (
                         <MaterialCommunityIcons
                             style={{
                                 width: 30,
-                                marginBottom: focused ? 3 : 0
+                                marginBottom: focused ? 3 : 0,
                             }}
                             name="blogger"
                             color={color}
@@ -77,24 +73,24 @@ function BottomNavigation() {
             />
             <Tab.Screen
                 name="Activity"
-                component={Second}
+                component={Activity}
                 options={{
-                    tabBarLabel: ({ focused, color }) => {
+                    tabBarLabel: ({focused, color}) => {
                         return focused ? <Text style={{
                             paddingLeft: 20,
                             color: color,
-                            fontFamily: "Rubik-Medium",
+                            fontFamily: 'Rubik-Medium',
                             fontSize: 14,
-                            textTransform: "uppercase"
+                            textTransform: 'uppercase',
                         }}>
                             Activity
-                        </Text> : null
+                        </Text> : null;
                     },
                     tabBarIcon: ({focused, color}) => (
                         <MaterialCommunityIcons
                             style={{
                                 width: 30,
-                                marginBottom: focused ? 3 : 0
+                                marginBottom: focused ? 3 : 0,
                             }}
                             name="contacts-outline"
                             color={color}
@@ -104,24 +100,24 @@ function BottomNavigation() {
             />
             <Tab.Screen
                 name="Journey"
-                component={Home}
+                component={Journey}
                 options={{
-                    tabBarLabel: ({ focused, color }) => {
+                    tabBarLabel: ({focused, color}) => {
                         return focused ? <Text style={{
                             paddingLeft: 20,
                             color: color,
-                            fontFamily: "Rubik-Medium",
+                            fontFamily: 'Rubik-Medium',
                             fontSize: 14,
-                            textTransform: "uppercase"
+                            textTransform: 'uppercase',
                         }}>
                             Journey
-                        </Text> : null
+                        </Text> : null;
                     },
                     tabBarIcon: ({focused, color}) => (
                         <MaterialCommunityIcons
                             style={{
                                 width: 30,
-                                marginBottom: focused ? 3 : 0
+                                marginBottom: focused ? 3 : 0,
                             }}
                             name="motorbike"
                             color={color}

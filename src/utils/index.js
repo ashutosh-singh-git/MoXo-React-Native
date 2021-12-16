@@ -1,9 +1,3 @@
-import {COLORS} from './colors';
-import {GlobalDimensions as Dimensions} from './dimensions';
-import {CONSTANTS} from './constants';
-
-export {
-    COLORS,
-    Dimensions,
-    CONSTANTS
-};
+export {GlobalDimensions as Dimensions} from './dimensions';
+export {CONSTANTS} from './constants';
+export {Theme} from './theme';

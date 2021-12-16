@@ -1,21 +1,21 @@
 import React from 'react';
-import {Home, Second} from '../../screens/home';
 import {CardStyleInterpolators, createStackNavigator} from '@react-navigation/stack';
-import {useSelector} from 'react-redux';
+import {useTheme} from '@react-navigation/native';
+import {Activity, Blog} from '../../screens';
 
 const Stack = createStackNavigator();
 
 function BlogStackNavigator() {
-    const {COLORS} = useSelector((state) => state)['Utils'];
+    const {colors} = useTheme();
     return (
         <Stack.Navigator initialRouteName={'Home'}>
             <Stack.Screen
                 name={'Home'}
-                component={Home}
+                component={Blog}
                 options={{
                     title: 'Moxo',
                     headerStyle: {
-                        backgroundColor: COLORS.bg,
+                        backgroundColor: colors.primary,
                     },
                     headerTintColor: '#fff',
                     headerTitleStyle: {
@@ -27,11 +27,11 @@ function BlogStackNavigator() {
             />
             <Stack.Screen
                 name={'Second'}
-                component={Second}
+                component={Activity}
                 options={{
                     title: 'Second',
                     headerStyle: {
-                        backgroundColor: COLORS.bg,
+                        backgroundColor: colors.primary,
                     },
                     headerTintColor: '#fff',
                     headerTitleStyle: {

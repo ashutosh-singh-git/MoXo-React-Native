@@ -2,18 +2,18 @@ import React from 'react';
 import {Card, Chip, Paragraph, Title} from 'react-native-paper';
 import {StyleSheet, Text, View} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {useSelector} from 'react-redux';
+import {useTheme} from '@react-navigation/native';
 
 function BlogCard({item}) {
-    const {COLORS} = useSelector((state) => state)['Utils'];
+    const {colors} = useTheme();
     return (
         <Card style={styles.card}>
             <Card.Cover source={{uri: item.webformatURL}}/>
             <Chip style={{
-                    ...styles.cardCoverText,
-                    backgroundColor: COLORS.textBg,
-                    color: COLORS.textColor
-                }}
+                ...styles.cardCoverText,
+                backgroundColor: colors.surface,
+                color: colors.text,
+            }}
                   icon={({size, color}) => (
                       <MaterialIcons name={'person'} color={color} size={size}/>
                   )}>
@@ -25,16 +25,16 @@ function BlogCard({item}) {
             </Card.Content>
             <View style={styles.cardFooter}>
                 <Text style={{
-                        ...styles.footerText,
-                        color: COLORS.textColor
-                    }}
+                    ...styles.footerText,
+                    color: colors.text,
+                }}
                 >
                     Hello
                 </Text>
                 <Text
                     style={{
                         ...styles.footerText,
-                        color: COLORS.textColor
+                        color: colors.text,
                     }}
                 >
                     World

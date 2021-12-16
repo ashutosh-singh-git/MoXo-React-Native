@@ -1,10 +1,11 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {DarkTheme, DefaultTheme, NavigationContainer, StackActions} from '@react-navigation/native';
+import {NavigationContainer, StackActions} from '@react-navigation/native';
 import {StatusBar, Text} from 'react-native';
 import RNBootSplash from 'react-native-bootsplash';
 import BottomNavigation from './components/bottomNavigation';
 import {useSelector} from 'react-redux';
+import {Theme} from '../utils';
 
 export const navigationRef = React.createRef();
 
@@ -21,7 +22,7 @@ export function goBack() {
 }
 
 function RootNavigation() {
-    const {CONSTANTS, COLORS} = useSelector((state) => state)['Utils'];
+    const {CONSTANTS} = useSelector((state) => state)['Utils'];
     const linking = {
         prefixes: ['https://app.moxo.com', 'moxo-app://'],
     };
@@ -31,9 +32,14 @@ function RootNavigation() {
             ref={navigationRef}
             linking={linking}
             fallback={<Text>Loading...</Text>}
-            theme={CONSTANTS.scheme ? DarkTheme : DefaultTheme}
+            theme={CONSTANTS.scheme ? Theme.dark : Theme.default}
         >
-            <StatusBar backgroundColor={COLORS.bg} barStyle={'light-content'}/>
+            <StatusBar
+                backgroundColor={
+                    CONSTANTS.scheme ?
+                        Theme.dark.colors.primary :
+                        Theme.default.colors.primary
+                } barStyle={'light-content'}/>
             <BottomNavigation/>
             {/*<BlogStackNavigator/>*/}
         </NavigationContainer>

@@ -1,53 +1,53 @@
 {
-  "name": "MoXo",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "generate": "npx react-native generate-bootsplash ./assets/images/logo.png --background-color=4a6362   --logo-width=100 --assets-path=./src/assets --flavor=main",
-    "clean": "cd android && gradlew clean && cd ..",
-    "cleanMac": "cd android && ./gradlew clean && cd ..",
-    "start": "react-native start",
-    "generate-prod-apk": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/build/intermediates/res/merged/release/ && rm -rf android/app/src/main/res/drawable-* && rm -rf android/app/src/main/res/raw/* && cd android && ./gradlew assembleRelease && cd ..",
-    "generate-prod-aab": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/build/intermediates/res/merged/release/ && rm -rf android/app/src/main/res/drawable-* && rm -rf android/app/src/main/res/raw/* && cd android && ./gradlew bundleRelease && cd ..",
-    "test": "jest",
-    "lint": "eslint ."
-  },
-  "dependencies": {
-    "@react-navigation/bottom-tabs": "^6.0.9",
-    "@react-navigation/drawer": "^6.1.8",
-    "@react-navigation/native": "^6.0.6",
-    "@react-navigation/stack": "^6.0.11",
-    "axios": "^0.24.0",
-    "react": "17.0.2",
-    "react-native": "0.66.3",
-    "react-native-bootsplash": "^4.0.2",
-    "react-native-gesture-handler": "^2.0.0",
-    "react-native-paper": "^4.10.1",
-    "react-native-safe-area-context": "^3.3.2",
-    "react-native-screens": "^3.10.0",
-    "react-native-vector-icons": "^9.0.0",
-    "react-redux": "^7.2.6",
-    "redux": "^4.1.2",
-    "redux-thunk": "^2.4.1"
-  },
-  "rnpm": {
-    "assets": [
-      "./assets/fonts/"
-    ]
-  },
-  "devDependencies": {
-    "@babel/core": "7.16.0",
-    "@babel/runtime": "7.16.3",
-    "@react-native-community/eslint-config": "2.0.0",
-    "babel-jest": "26.6.3",
-    "eslint": "7.14.0",
-    "jest": "26.6.3",
-    "metro-react-native-babel-preset": "0.66.2",
-    "react-test-renderer": "17.0.2"
-  },
-  "jest": {
-    "preset": "react-native"
-  }
+    "name": "MoXo",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "android": "react-native run-android",
+        "ios": "react-native run-ios",
+        "generate": "npx react-native generate-bootsplash ./assets/images/logo.png --background-color=4a6362   --logo-width=100 --assets-path=./src/assets --flavor=main",
+        "clean": "cd android && gradlew clean && cd ..",
+        "cleanMac": "cd android && ./gradlew clean && cd ..",
+        "start": "react-native start",
+        "generate-prod-apk": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/build/intermediates/res/merged/release/ && rm -rf android/app/src/main/res/drawable-* && rm -rf android/app/src/main/res/raw/* && cd android && ./gradlew assembleRelease && cd ..",
+        "generate-prod-aab": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/build/intermediates/res/merged/release/ && rm -rf android/app/src/main/res/drawable-* && rm -rf android/app/src/main/res/raw/* && cd android && ./gradlew bundleRelease && cd ..",
+        "test": "jest",
+        "lint": "eslint ."
+    },
+    "dependencies": {
+        "@react-navigation/bottom-tabs": "^6.0.9",
+        "@react-navigation/drawer": "^6.1.8",
+        "@react-navigation/native": "^6.0.6",
+        "@react-navigation/stack": "^6.0.11",
+        "axios": "^0.24.0",
+        "react": "17.0.2",
+        "react-native": "0.66.3",
+        "react-native-bootsplash": "^4.0.2",
+        "react-native-gesture-handler": "^2.0.0",
+        "react-native-paper": "^4.10.1",
+        "react-native-safe-area-context": "^3.3.2",
+        "react-native-screens": "^3.10.0",
+        "react-native-vector-icons": "^9.0.0",
+        "react-redux": "^7.2.6",
+        "redux": "^4.1.2",
+        "redux-thunk": "^2.4.1"
+    },
+    "rnpm": {
+        "assets": [
+            "./assets/fonts/"
+        ]
+    },
+    "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@babel/runtime": "7.16.3",
+        "@react-native-community/eslint-config": "2.0.0",
+        "babel-jest": "26.6.3",
+        "eslint": "7.14.0",
+        "jest": "26.6.3",
+        "metro-react-native-babel-preset": "0.66.2",
+        "react-test-renderer": "17.0.2"
+    },
+    "jest": {
+        "preset": "react-native"
+    }
 }

@@ -1,6 +1,5 @@
-import {setConstants, setColors} from './utils';
+import {setConstants} from './utils';
 
 export {
     setConstants,
-    setColors,
 };

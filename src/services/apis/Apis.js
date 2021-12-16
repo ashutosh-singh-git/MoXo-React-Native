@@ -1,23 +1,23 @@
 import request from './AxiosApiService';
 
-const getFeed = (q,p) => {
+const getFeed = (q, p) => {
     return request({
         url: '/api/',
         method: 'GET',
-        params: { key: "24052040-0b669836e061e56c28c501665", q: q, page: p}
+        params: {key: '24052040-0b669836e061e56c28c501665', q: q, page: p},
     });
-}
+};
 
 const postFeed = () => {
     // return request({
     //     url: '/feed/post',
     //     method: 'POST'
     // });
-}
+};
 
 const Apis = {
-    getFeed, postFeed
-}
+    getFeed, postFeed,
+};
 
 export default Apis;
 
@@ -25,7 +25,7 @@ export default Apis;
  * Base URL already defined in AxiosApiService
  *
  * request calling
-    return request({
+ return request({
         url: '/feed/',
         method: 'GET'
         params: {page: 1, sortBy: 'name'},
@@ -33,9 +33,9 @@ export default Apis;
     });
  *
  * Calling Apis
-     Apis
-          .getFeed()
-          .then((response) => {
+ Apis
+ .getFeed()
+ .then((response) => {
             console.log(response);
           });
  */

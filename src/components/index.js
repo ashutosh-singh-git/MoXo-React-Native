@@ -1,5 +1,1 @@
-import BlogCard from './blogCard';
-
-export {
-    BlogCard,
-};
+export BlogCard from './blogCard';
