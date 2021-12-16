@@ -1,11 +1,11 @@
 import React from 'react';
 import {Appbar} from 'react-native-paper';
-import {StyleSheet} from 'react-native';
-import {Colors} from '../utils';
+import {useSelector} from 'react-redux';
 
 function AppBar({title}) {
+    const {COLORS} = useSelector((state) => state)['Utils'];
     return (
-        <Appbar.Header style={{backgroundColor: Colors().bg}}>
+        <Appbar.Header style={{backgroundColor: COLORS.bg}}>
             <Appbar.Content title={title} titleStyle={styles.title}/>
         </Appbar.Header>
     );

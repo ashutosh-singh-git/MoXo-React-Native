@@ -1,3 +1,6 @@
-const Actions = {};
+import {setConstants, setColors} from './utils';
 
-export default Actions;
+export {
+    setConstants,
+    setColors,
+};

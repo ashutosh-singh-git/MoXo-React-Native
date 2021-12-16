@@ -1,13 +1,14 @@
 import React from 'react';
-import {useColorScheme} from 'react-native';
 
-export const Colors = () => {
-    const scheme = useColorScheme() === 'dark';
-    const light = {
+export const COLORS = {
+    light: {
         bg: '#4A6362',
-    };
-    const dark = {
+        textBg: '#fff',
+        textColor: '#000'
+    },
+    dark: {
         bg: '#000',
-    };
-    return scheme ? dark : light;
+        textBg: '#000',
+        textColor: '#fff'
+    }
 };

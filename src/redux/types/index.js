@@ -1,3 +1,5 @@
-const ActionTypes = {};
+import {UtilTypes} from './utils';
 
-export default ActionTypes;
+export {
+    UtilTypes,
+};

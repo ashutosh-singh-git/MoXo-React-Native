@@ -1,25 +1,27 @@
 import React from 'react';
-import {StyleSheet, Text} from 'react-native';
-import {Colors, Dimensions} from '../../utils';
+import {Text} from 'react-native';
+import {Dimensions} from '../../utils';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Blog} from '../../screens';
 import {Home, Second} from '../../screens/home';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {useSelector} from 'react-redux';
 
 const Tab = createBottomTabNavigator();
 
-function BottomNavigation(props) {
+function BottomNavigation() {
+    const {COLORS} = useSelector((state) => state)['Utils'];
     return (
         <Tab.Navigator
             initialRouteName="Home"
             style={{
-                backgroundColor: Colors().bg,
+                backgroundColor: COLORS.bg,
             }}
             screenOptions={{
-                tabBarActiveTintColor: Colors().bg,
+                tabBarActiveTintColor: COLORS.bg,
                 tabBarInactiveTintColor: "#fff",
                 tabBarActiveBackgroundColor: "#fff",
-                tabBarInactiveBackgroundColor: Colors().bg,
+                tabBarInactiveBackgroundColor: COLORS.bg,
                 tabBarItemStyle: {
                     paddingLeft: 10,
                     margin: 6,
@@ -28,17 +30,16 @@ function BottomNavigation(props) {
                 tabBarStyle: {
                     position: "absolute",
                     width: Dimensions.windowWidth-30,
-                    // margin: 10,
                     bottom: 5,
                     right: 15,
                     left: 15,
-                    backgroundColor: Colors().bg,
+                    backgroundColor: COLORS.bg,
                     borderRadius: 10,
                     elevation: 5
                 },
                 tabBarLabelPosition: "beside-icon",
                 headerStyle: {
-                    backgroundColor: Colors().bg
+                    backgroundColor: COLORS.bg
                 },
                 headerTitleStyle: {
                     color: '#fff',
@@ -52,15 +53,15 @@ function BottomNavigation(props) {
                 component={Blog}
                 options={{
                     tabBarLabel: ({ focused, color }) => {
-                        return <Text style={{
+                        return focused ? <Text style={{
                             paddingLeft: 20,
                             color: color,
                             fontFamily: "Rubik-Medium",
                             fontSize: 14,
                             textTransform: "uppercase"
                         }}>
-                            {focused ? "Blog" : ""}
-                        </Text>
+                            Blog
+                        </Text> : null
                     },
                     tabBarIcon: ({focused, color}) => (
                         <MaterialCommunityIcons
@@ -79,15 +80,15 @@ function BottomNavigation(props) {
                 component={Second}
                 options={{
                     tabBarLabel: ({ focused, color }) => {
-                        return <Text style={{
+                        return focused ? <Text style={{
                             paddingLeft: 20,
                             color: color,
                             fontFamily: "Rubik-Medium",
                             fontSize: 14,
                             textTransform: "uppercase"
                         }}>
-                            {focused ? 'Activity' : ""}
-                        </Text>
+                            Activity
+                        </Text> : null
                     },
                     tabBarIcon: ({focused, color}) => (
                         <MaterialCommunityIcons
@@ -106,15 +107,15 @@ function BottomNavigation(props) {
                 component={Home}
                 options={{
                     tabBarLabel: ({ focused, color }) => {
-                        return <Text style={{
+                        return focused ? <Text style={{
                             paddingLeft: 20,
                             color: color,
                             fontFamily: "Rubik-Medium",
                             fontSize: 14,
                             textTransform: "uppercase"
                         }}>
-                            {focused ? 'Journey' : ""}
-                        </Text>
+                            Journey
+                        </Text> : null
                     },
                     tabBarIcon: ({focused, color}) => (
                         <MaterialCommunityIcons
@@ -132,22 +133,22 @@ function BottomNavigation(props) {
     );
 }
 
-const styles = StyleSheet.create({
-    main: {
-        flexDirection: "row",
-        width: Dimensions.windowWidth - 10,
-        borderRadius: 10,
-        paddingHorizontal: 20,
-        paddingVertical: 5,
-        alignSelf: 'center',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        marginBottom: 5,
-    },
-    title: {
-        fontFamily: "Rubik-Regular",
-        textAlign: 'center'
-    },
-});
+// const styles = StyleSheet.create({
+//     main: {
+//         flexDirection: "row",
+//         width: Dimensions.windowWidth - 10,
+//         borderRadius: 10,
+//         paddingHorizontal: 20,
+//         paddingVertical: 5,
+//         alignSelf: 'center',
+//         alignItems: 'center',
+//         justifyContent: 'space-between',
+//         marginBottom: 5,
+//     },
+//     title: {
+//         fontFamily: "Rubik-Regular",
+//         textAlign: 'center'
+//     },
+// });
 
 export default BottomNavigation;

@@ -17,8 +17,8 @@ class Blog extends Component {
         Apis
             .getFeed("india", 2)
             .then(res => {
-                console.log(res.hits)
-                this.setState({data: res.hits});
+                console.log(res["hits"])
+                this.setState({data: res["hits"]});
             });
     }
 
@@ -33,13 +33,13 @@ class Blog extends Component {
                 <FlatList
                     style={{paddingVertical: 5}}
                     data={data}
-                    keyExtractor={(item, index) => {
+                    keyExtractor={(item) => {
                         return item.id.toString();
                     }}
                     renderItem={this.renderItem}
                     ListFooterComponent={
                         <View style={{
-                            height: 25,
+                            height: 70,
                         }}/>
                     }/>
             </SafeAreaView>

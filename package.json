@@ -7,6 +7,7 @@
     "ios": "react-native run-ios",
     "generate": "npx react-native generate-bootsplash ./assets/images/logo.png --background-color=4a6362   --logo-width=100 --assets-path=./src/assets --flavor=main",
     "clean": "cd android && gradlew clean && cd ..",
+    "cleanMac": "cd android && ./gradlew clean && cd ..",
     "start": "react-native start",
     "generate-prod-apk": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/build/intermediates/res/merged/release/ && rm -rf android/app/src/main/res/drawable-* && rm -rf android/app/src/main/res/raw/* && cd android && ./gradlew assembleRelease && cd ..",
     "generate-prod-aab": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/build/intermediates/res/merged/release/ && rm -rf android/app/src/main/res/drawable-* && rm -rf android/app/src/main/res/raw/* && cd android && ./gradlew bundleRelease && cd ..",

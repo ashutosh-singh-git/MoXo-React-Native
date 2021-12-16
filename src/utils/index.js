@@ -1,7 +1,9 @@
-import {Colors} from './colors';
+import {COLORS} from './colors';
 import {GlobalDimensions as Dimensions} from './dimensions';
+import {CONSTANTS} from './constants';
 
 export {
-    Colors,
-    Dimensions
+    COLORS,
+    Dimensions,
+    CONSTANTS
 };

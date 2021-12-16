@@ -1,11 +1,12 @@
 import React from 'react';
 import {Home, Second} from '../../screens/home';
 import {CardStyleInterpolators, createStackNavigator} from '@react-navigation/stack';
-import {Colors} from '../../utils';
+import {useSelector} from 'react-redux';
 
 const Stack = createStackNavigator();
 
 function BlogStackNavigator() {
+    const {COLORS} = useSelector((state) => state)['Utils'];
     return (
         <Stack.Navigator initialRouteName={'Home'}>
             <Stack.Screen
@@ -14,7 +15,7 @@ function BlogStackNavigator() {
                 options={{
                     title: 'Moxo',
                     headerStyle: {
-                        backgroundColor: Colors().bg,
+                        backgroundColor: COLORS.bg,
                     },
                     headerTintColor: '#fff',
                     headerTitleStyle: {
@@ -30,7 +31,7 @@ function BlogStackNavigator() {
                 options={{
                     title: 'Second',
                     headerStyle: {
-                        backgroundColor: Colors().bg,
+                        backgroundColor: COLORS.bg,
                     },
                     headerTintColor: '#fff',
                     headerTitleStyle: {
