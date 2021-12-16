@@ -3,17 +3,17 @@ import {Card, Chip, Paragraph, Title} from 'react-native-paper';
 import {StyleSheet, Text, View} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-function BlogCard({}) {
+function BlogCard({item}) {
     return (
         <Card style={styles.card}>
-            <Card.Cover source={{uri: 'https://picsum.photos/600'}}/>
+            <Card.Cover source={{uri: item.webformatURL}}/>
             <Chip style={styles.cardCoverText}
                   icon={({size, color}) => (
                       <MaterialIcons name={'person'} color={color} size={size}/>
-                  )}>Person name</Chip>
+                  )}>{item.user}</Chip>
             <Card.Content>
-                <Title style={styles.cardTitle}>Card title</Title>
-                <Paragraph style={styles.cardContent}>Card content</Paragraph>
+                <Title style={styles.cardTitle}>{item.tags}</Title>
+                <Paragraph style={styles.cardContent}>{item.pageURL}</Paragraph>
             </Card.Content>
             <View style={styles.cardFooter}>
                 <Text style={styles.footerText}>Hello</Text>
