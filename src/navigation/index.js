@@ -3,7 +3,7 @@ import React from 'react';
 import {NavigationContainer, StackActions} from '@react-navigation/native';
 import {StatusBar, Text} from 'react-native';
 import RNBootSplash from 'react-native-bootsplash';
-import BottomNavigation from './components/bottomNavigation';
+import BottomTabNavigation from './components/bottomTabNavigation';
 import {useSelector} from 'react-redux';
 import {Theme} from '../utils';
 
@@ -40,7 +40,7 @@ function RootNavigation() {
                         Theme.dark.colors.primary :
                         Theme.default.colors.primary
                 } barStyle={'light-content'}/>
-            <BottomNavigation/>
+            <BottomTabNavigation/>
             {/*<BlogStackNavigator/>*/}
         </NavigationContainer>
     );

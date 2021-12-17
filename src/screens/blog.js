@@ -23,7 +23,7 @@ class Blog extends Component {
     }
 
     renderItem = ({item}) => {
-        return <BlogCard item={item}/>;
+        return <BlogCard item={item} navigation={this.props.navigation}/>;
     };
 
     render() {

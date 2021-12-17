@@ -4,10 +4,10 @@ import {StyleSheet, Text, View} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {useTheme} from '@react-navigation/native';
 
-function BlogCard({item, navigate}) {
+function BlogCard({item}) {
     const {colors} = useTheme();
     return (
-        <Card style={styles.card} onPress={() => navigate.push("WebView")}>
+        <Card style={styles.card}>
             <Card.Cover source={{uri: item.webformatURL}}/>
             <Chip
                 mode={"flat"}

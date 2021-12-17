@@ -1,20 +1,14 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import { WebView } from 'react-native-webview';
 
-class WebView extends Component {
+class WebViewComponent extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {};
     }
 
     render() {
-        return (
-            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-                <Text style={{fontFamily: 'Rubik-Light'}}>Webview Screen</Text>
-            </View>
-        );
+        return <WebView source={{ uri: this.props.url }} />;
     }
 }
 
-export default WebView;
+export default WebViewComponent;
