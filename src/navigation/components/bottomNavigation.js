@@ -1,10 +1,11 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import {Dimensions} from '../../utils';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Activity, Blog, Journey} from '../../screens';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {useTheme} from '@react-navigation/native';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const Tab = createBottomTabNavigator();
 
@@ -48,86 +49,79 @@ function BottomNavigation() {
                 name="Blog"
                 component={Blog}
                 options={{
-                    tabBarLabel: ({focused, color}) => {
-                        return focused ? <Text style={{
-                            paddingLeft: 20,
-                            color: color,
-                            fontFamily: 'Rubik-Medium',
-                            fontSize: 14,
-                            textTransform: 'uppercase',
-                        }}>
-                            Blog
-                        </Text> : null;
-                    },
-                    tabBarIcon: ({focused, color}) => (
-                        <MaterialCommunityIcons
-                            style={{
-                                width: 30,
-                                marginBottom: focused ? 3 : 0,
-                            }}
-                            name="blogger"
-                            color={color}
-                            size={30}/>
-                    ),
+                    tabBarLabel: ({focused, color}) =>
+                        tabLabel("Blog", {focused, color}),
+                    tabBarIcon: ({focused, color}) =>
+                        tabIcon("blogger", {focused, color}),
+                    headerRight: headerRight,
                 }}
             />
             <Tab.Screen
                 name="Activity"
                 component={Activity}
                 options={{
-                    tabBarLabel: ({focused, color}) => {
-                        return focused ? <Text style={{
-                            paddingLeft: 20,
-                            color: color,
-                            fontFamily: 'Rubik-Medium',
-                            fontSize: 14,
-                            textTransform: 'uppercase',
-                        }}>
-                            Activity
-                        </Text> : null;
-                    },
-                    tabBarIcon: ({focused, color}) => (
-                        <MaterialCommunityIcons
-                            style={{
-                                width: 30,
-                                marginBottom: focused ? 3 : 0,
-                            }}
-                            name="contacts-outline"
-                            color={color}
-                            size={30}/>
-                    ),
+                    tabBarLabel: ({focused, color}) =>
+                        tabLabel("Activity", {focused, color}),
+                    tabBarIcon: ({focused, color}) =>
+                        tabIcon("contacts-outline", {focused, color})
                 }}
             />
             <Tab.Screen
                 name="Journey"
                 component={Journey}
                 options={{
-                    tabBarLabel: ({focused, color}) => {
-                        return focused ? <Text style={{
-                            paddingLeft: 20,
-                            color: color,
-                            fontFamily: 'Rubik-Medium',
-                            fontSize: 14,
-                            textTransform: 'uppercase',
-                        }}>
-                            Journey
-                        </Text> : null;
-                    },
-                    tabBarIcon: ({focused, color}) => (
-                        <MaterialCommunityIcons
-                            style={{
-                                width: 30,
-                                marginBottom: focused ? 3 : 0,
-                            }}
-                            name="motorbike"
-                            color={color}
-                            size={30}/>
-                    ),
+                    tabBarLabel: ({focused, color}) =>
+                        tabLabel("Journey", {focused, color}),
+                    tabBarIcon: ({focused, color}) =>
+                        tabIcon("motorbike", {focused, color})
                 }}
             />
         </Tab.Navigator>
     );
 }
+
+const tabIcon = (name, {focused, color}) => (
+    <MaterialCommunityIcons
+        style={{
+            width: 30,
+            marginBottom: focused ? 3 : 0,
+        }}
+        name={name}
+        color={color}
+        size={30}/>
+);
+
+const tabLabel = (name, {focused, color}) => {
+    return focused ? <Text style={{
+        paddingLeft: 20,
+        color: color,
+        fontFamily: 'Rubik-Medium',
+        fontSize: 14,
+        textTransform: 'uppercase',
+    }}>
+        {name}
+    </Text> : null;
+};
+
+const headerRight = () => (
+    <View
+        style={{
+            display: 'flex',
+            flexDirection: 'row',
+            height: "100%",
+            alignItems: 'center',
+            justifyContent: 'space-evenly',
+            width: 90
+        }}
+    >
+        <TouchableOpacity>
+            <FontAwesome5 name={"search"} color={"#fff"} size={20}/>
+        </TouchableOpacity>
+        <TouchableOpacity>
+            <MaterialCommunityIcons name={"sort"} color={"#fff"} size={28}/>
+        </TouchableOpacity>
+    </View>
+);
 
 // const styles = StyleSheet.create({
 //     main: {

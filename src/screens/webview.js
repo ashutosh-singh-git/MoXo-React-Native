@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
 
-class Activity extends Component {
+class WebView extends Component {
     constructor(props) {
         super(props);
 
@@ -11,10 +11,10 @@ class Activity extends Component {
     render() {
         return (
             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-                <Text style={{fontFamily: 'Rubik-Light'}}>Activity Screen</Text>
+                <Text style={{fontFamily: 'Rubik-Light'}}>Webview Screen</Text>
             </View>
         );
     }
 }
 
-export default Activity;
+export default WebView;

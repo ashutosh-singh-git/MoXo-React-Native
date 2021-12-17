@@ -4,19 +4,24 @@ import {StyleSheet, Text, View} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {useTheme} from '@react-navigation/native';
 
-function BlogCard({item}) {
+function BlogCard({item, navigate}) {
     const {colors} = useTheme();
     return (
-        <Card style={styles.card}>
+        <Card style={styles.card} onPress={() => navigate.push("WebView")}>
             <Card.Cover source={{uri: item.webformatURL}}/>
-            <Chip style={{
-                ...styles.cardCoverText,
-                backgroundColor: colors.surface,
-                color: colors.text,
-            }}
-                  icon={({size, color}) => (
-                      <MaterialIcons name={'person'} color={color} size={size}/>
-                  )}>
+            <Chip
+                mode={"flat"}
+                style={{
+                    ...styles.cardCoverText,
+                    backgroundColor: colors.surface,
+                }}
+                textStyle={{
+                    color: colors.text,
+                }}
+                icon={({size}) => (
+                    <MaterialIcons name={'person'} color={colors.text} size={size}/>
+                )}
+            >
                 {item.user}
             </Chip>
             <Card.Content>

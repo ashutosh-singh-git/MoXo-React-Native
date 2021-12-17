@@ -1,43 +1,38 @@
 import React from 'react';
 import {CardStyleInterpolators, createStackNavigator} from '@react-navigation/stack';
 import {useTheme} from '@react-navigation/native';
-import {Activity, Blog} from '../../screens';
+import {Blog, WebView} from '../../screens';
 
 const Stack = createStackNavigator();
 
 function BlogStackNavigator() {
     const {colors} = useTheme();
     return (
-        <Stack.Navigator initialRouteName={'Home'}>
+        <Stack.Navigator initialRouteName={'Blog'}>
             <Stack.Screen
-                name={'Home'}
+                name={'Blog'}
                 component={Blog}
                 options={{
+                    headerShown: false,
                     title: 'Moxo',
                     headerStyle: {
                         backgroundColor: colors.primary,
                     },
                     headerTintColor: '#fff',
                     headerTitleStyle: {
-                        fontWeight: 'bold',
+                        color: '#fff',
+                        fontFamily: 'Rubik-Medium',
+                        fontSize: 25,
                     },
                     // headerLeft: () => HamburgerNavigation(navigation),
                     cardStyleInterpolator: CardStyleInterpolators.forNoAnimation,
                 }}
             />
             <Stack.Screen
-                name={'Second'}
-                component={Activity}
+                name={'WebView'}
+                component={WebView}
                 options={{
-                    title: 'Second',
-                    headerStyle: {
-                        backgroundColor: colors.primary,
-                    },
-                    headerTintColor: '#fff',
-                    headerTitleStyle: {
-                        fontWeight: 'bold',
-                    },
-                    headerLeft: false,
+                    headerShown: false,
                     cardStyleInterpolator: CardStyleInterpolators.forNoAnimation,
                 }}
             />
