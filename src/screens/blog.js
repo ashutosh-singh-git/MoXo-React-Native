@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
-import {FlatList, SafeAreaView, View} from 'react-native';
+import {FlatList, Modal, SafeAreaView, View} from 'react-native';
 import {BlogCard} from '../components';
 import Apis from '../services/apis/Apis';
+import {connect} from 'react-redux';
+import {WebView} from 'react-native-webview';
+import {setWebview} from '../redux/actions';
 
 
 class Blog extends Component {
@@ -42,10 +45,32 @@ class Blog extends Component {
                             height: 70,
                         }}/>
                     }/>
+                <Modal
+                    onRequestClose={() => this.props.setWebview({modal:false})}
+                    visible={this.props.webView.modal}
+                    style={{flex:1}}
+                >
+                    <WebView
+                        source={{ uri: this.props.webView.url }}
+                        javaScriptEnabled={true}
+                    />
+                </Modal>
             </SafeAreaView>
         );
     }
 
 }
 
-export default Blog;
+const mapStateToProps = (state) => {
+    const {webView} = state.blog;
+    return{
+        webView
+    }
+};
+
+const mapDispatchToProps = {
+    setWebview
+};
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Blog);

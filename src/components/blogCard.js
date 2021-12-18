@@ -3,11 +3,14 @@ import {Card, Chip, Paragraph, Title} from 'react-native-paper';
 import {StyleSheet, Text, View} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {useTheme} from '@react-navigation/native';
+import {useDispatch} from 'react-redux';
+import {setWebview} from '../redux/actions';
 
 function BlogCard({item}) {
+    const dispatch = useDispatch();
     const {colors} = useTheme();
     return (
-        <Card style={styles.card}>
+        <Card style={styles.card} onPress={() => dispatch(setWebview({url: item.pageURL, modal: true}))}>
             <Card.Cover source={{uri: item.webformatURL}}/>
             <Chip
                 mode={"flat"}
@@ -77,5 +80,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Rubik-Medium',
     },
 });
+
+
 
 export default BlogCard;

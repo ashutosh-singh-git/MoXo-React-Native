@@ -22,7 +22,7 @@ export function goBack() {
 }
 
 function RootNavigation() {
-    const {CONSTANTS} = useSelector((state) => state)['Utils'];
+    const {CONSTANTS} = useSelector((state) => state)['utils'];
     const linking = {
         prefixes: ['https://app.moxo.com', 'moxo-app://'],
     };

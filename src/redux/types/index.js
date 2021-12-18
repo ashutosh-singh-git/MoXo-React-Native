@@ -1,5 +1,2 @@
-import {UtilTypes} from './utils';
-
-export {
-    UtilTypes,
-};
+export {UtilTypes} from './utils';
+export {BlogTypes} from './blog';
