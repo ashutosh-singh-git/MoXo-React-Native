@@ -16,6 +16,7 @@ function BottomTabNavigation() {
             name: 'Blog',
             iconName: 'blogger',
             component: Blog,
+            headerRight: headerRight
         },
         {
             name: 'Activity',
@@ -48,7 +49,7 @@ function BottomTabNavigation() {
                     name={item['name']}
                     component={item['component']}
                     options={{
-                        headerRight: headerRight,
+                        headerRight: item['headerRight'],
                         tabBarButton: (props) =>
                             tabBarButton({...props, item, colors}),
                     }}

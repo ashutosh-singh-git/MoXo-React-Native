@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { WebView } from 'react-native-webview';
+import {Modal} from 'react-native';
 
 class WebViewComponent extends Component {
     constructor(props) {
@@ -7,7 +8,14 @@ class WebViewComponent extends Component {
     }
 
     render() {
-        return <WebView source={{ uri: this.props.url }} />;
+        return (
+            <Modal>
+                <WebView
+                    source={{ uri: this.props.url }}
+                    javaScriptEnabled={true}
+                />
+            </Modal>
+        );
     }
 }
 
