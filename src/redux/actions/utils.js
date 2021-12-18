@@ -1,12 +1,21 @@
 import {UtilTypes} from '../types';
 
-const setConstants = (constants) => {
+const setConstants = (payload) => {
     return {
         type: UtilTypes.SET_CONSTANTS,
         payload: {
-            CONSTANTS: constants,
+            CONSTANTS: payload,
         },
     };
 };
 
-export {setConstants};
+const setIsOnline = (payload) => {
+    return {
+        type: UtilTypes.SET_IS_ONLINE,
+        payload: {
+            isOnline: payload,
+        },
+    };
+};
+
+export {setConstants, setIsOnline};

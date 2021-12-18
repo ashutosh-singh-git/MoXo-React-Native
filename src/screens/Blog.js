@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {FlatList, Modal, SafeAreaView, View} from 'react-native';
+import {ActivityIndicator, FlatList, Modal, SafeAreaView, Text, View} from 'react-native';
 import {BlogCard} from '../components';
 import Apis from '../services/apis/Apis';
 import {connect} from 'react-redux';
 import {WebView} from 'react-native-webview';
 import {setWebview} from '../redux/actions';
+import {Dimensions} from '../utils';
 
 
 class Blog extends Component {
@@ -13,6 +14,7 @@ class Blog extends Component {
 
         this.state = {
             data: [],
+            loading: true,
         };
     }
 
@@ -46,14 +48,32 @@ class Blog extends Component {
                         }}/>
                     }/>
                 <Modal
-                    onRequestClose={() => this.props.setWebview({modal: false})}
+                    onRequestClose={() => {
+                        this.props.setWebview({modal: false});
+                        this.setState({loading: true});
+                    }}
                     visible={this.props.webView.modal}
                     style={{flex: 1}}
                 >
-                    <WebView
-                        source={{uri: this.props.webView.url}}
-                        javaScriptEnabled={true}
-                    />
+                    {
+                        this.props.isOnline ?
+                            <>
+                                {
+                                    this.state.loading ?
+                                        <View style={{alignItems:'center', justifyContent:'center',width:Dimensions.screenWidth, height: Dimensions.screenHeight }}>
+                                            <ActivityIndicator size={"large"} color={"red"}/>
+                                        </View> : null
+                                }
+                                <WebView
+                                    source={{uri: this.props.webView.url}}
+                                    javaScriptEnabled={true}
+                                    onLoadStart={() => this.setState({loading: false})}
+                                />
+                            </> :
+                            <View>
+                                <Text>is offlinefsfaf</Text>
+                            </View>
+                    }
                 </Modal>
             </SafeAreaView>
         );
@@ -65,6 +85,7 @@ const mapStateToProps = (state) => {
     const {webView} = state.blog;
     return {
         webView,
+        isOnline: state.utils.isOnline,
     };
 };
 

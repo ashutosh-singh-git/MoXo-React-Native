@@ -1,2 +1,2 @@
-export {setConstants} from './utils';
+export {setConstants,setIsOnline} from './utils';
 export {setWebview} from './blog';
