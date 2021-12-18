@@ -16,7 +16,7 @@ function BottomTabNavigation() {
             name: 'Blog',
             iconName: 'blogger',
             component: Blog,
-            headerRight: headerRight
+            headerRight: headerRight,
         },
         {
             name: 'Activity',
@@ -77,7 +77,7 @@ const tabBarButton = (props) => {
 
     useEffect(() => {
         if (focused) {
-            viewRef.current.animate("bounceIn");
+            viewRef.current.animate('bounceIn');
             // viewRef.current.animate({
             //     0: {
             //         scaleX: 0,
@@ -86,6 +86,8 @@ const tabBarButton = (props) => {
             //         scaleX: 1,
             //     },
             // });
+        } else {
+            viewRef.current.animate('rubberBand');
         }
     }, [focused]);
 
@@ -93,7 +95,7 @@ const tabBarButton = (props) => {
         <TouchableOpacity onPress={onPress} style={styles.tabButtonContainer}>
             <Animatable.View
                 ref={viewRef}
-                animation={"bounceIn"}
+                animation={'bounceIn'}
                 duration={2000}
                 style={[
                     styles.tabButton,

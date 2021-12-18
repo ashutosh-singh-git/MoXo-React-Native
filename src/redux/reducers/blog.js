@@ -3,15 +3,16 @@ import {BlogTypes} from '../types';
 const initialState = {
     webView: {
         url: null,
-        modal: false
+        modal: false,
     },
 };
 
 export const Blog = (state = initialState, {type, payload}) => {
     switch (type) {
         case BlogTypes.SET_WEBVIEW: {
-            return {...state,
-                ...payload
+            return {
+                ...state,
+                ...payload,
             };
         }
         default: {

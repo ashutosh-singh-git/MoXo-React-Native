@@ -46,12 +46,12 @@ class Blog extends Component {
                         }}/>
                     }/>
                 <Modal
-                    onRequestClose={() => this.props.setWebview({modal:false})}
+                    onRequestClose={() => this.props.setWebview({modal: false})}
                     visible={this.props.webView.modal}
-                    style={{flex:1}}
+                    style={{flex: 1}}
                 >
                     <WebView
-                        source={{ uri: this.props.webView.url }}
+                        source={{uri: this.props.webView.url}}
                         javaScriptEnabled={true}
                     />
                 </Modal>
@@ -63,14 +63,14 @@ class Blog extends Component {
 
 const mapStateToProps = (state) => {
     const {webView} = state.blog;
-    return{
-        webView
-    }
+    return {
+        webView,
+    };
 };
 
 const mapDispatchToProps = {
-    setWebview
+    setWebview,
 };
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(Blog);
+export default connect(mapStateToProps, mapDispatchToProps)(Blog);

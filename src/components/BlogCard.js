@@ -13,7 +13,7 @@ function BlogCard({item}) {
         <Card style={styles.card} onPress={() => dispatch(setWebview({url: item.pageURL, modal: true}))}>
             <Card.Cover source={{uri: item.webformatURL}}/>
             <Chip
-                mode={"flat"}
+                mode={'flat'}
                 style={{
                     ...styles.cardCoverText,
                     backgroundColor: colors.surface,
@@ -80,7 +80,6 @@ const styles = StyleSheet.create({
         fontFamily: 'Rubik-Medium',
     },
 });
-
 
 
 export default BlogCard;

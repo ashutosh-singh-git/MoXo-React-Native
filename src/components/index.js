@@ -1,1 +1,1 @@
-export BlogCard from './blogCard';
+export BlogCard from './BlogCard';

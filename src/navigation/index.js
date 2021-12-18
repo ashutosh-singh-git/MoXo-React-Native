@@ -3,7 +3,7 @@ import React from 'react';
 import {NavigationContainer, StackActions} from '@react-navigation/native';
 import {StatusBar, Text} from 'react-native';
 import RNBootSplash from 'react-native-bootsplash';
-import BottomTabNavigation from './components/bottomTabNavigation';
+import BottomTabNavigation from './components/BottomTabNavigation';
 import {useSelector} from 'react-redux';
 import {Theme} from '../utils';
 

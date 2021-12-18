@@ -5,7 +5,7 @@
     "scripts": {
         "android": "react-native run-android",
         "ios": "react-native run-ios",
-        "generate": "npx react-native generate-bootsplash ./assets/images/logo.png --background-color=4a6362   --logo-width=100 --assets-path=./src/assets --flavor=main",
+        "generate": "npx react-native generate-bootsplash assets/images/splash_icon.png --background-color=4a6362   --logo-width=200 --assets-path=./src/assets --flavor=main",
         "clean": "cd android && gradlew clean && cd ..",
         "cleanMac": "cd android && ./gradlew clean && cd ..",
         "start": "react-native start",
